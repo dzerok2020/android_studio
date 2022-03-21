@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/marginlayout">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <Button
+        android:id="@+id/btnthem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/btnColor"
+        android:text="@string/btnthem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnthoat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/btnthoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/btnColor"
+        android:text="@string/btnthoat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnthem"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+    <TextView
+        android:id="@+id/lblhoten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/texthoten"
+        app:layout_constraintBottom_toTopOf="@+id/lblbangcap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblbangcap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textbangcap"
+        app:layout_constraintBottom_toTopOf="@+id/lblsothich"
+        app:layout_constraintStart_toStartOf="@+id/lblhoten"
+        app:layout_constraintTop_toBottomOf="@+id/lblhoten" />
+
+    <TextView
+        android:id="@+id/lblsothich"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textsothich"
+        app:layout_constraintBottom_toTopOf="@+id/edtsothichkhac"
+        app:layout_constraintStart_toStartOf="@+id/lblbangcap"
+        app:layout_constraintTop_toBottomOf="@+id/lblbangcap" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/checkdocsach"
+        app:layout_constraintBottom_toBottomOf="@+id/lblsothich"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lblsothich"
+        app:layout_constraintStart_toStartOf="@+id/radgroup"
+        app:layout_constraintTop_toTopOf="@+id/lblsothich" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/checkdulich"
+        app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintTop_toTopOf="@+id/checkBox" />
+
+    <EditText
+        android:id="@+id/edtsothichkhac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/listview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/radgroup"
+        app:layout_constraintTop_toBottomOf="@+id/lblsothich" />
+
+    <EditText
+        android:id="@+id/éthoten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/lblhoten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblhoten"
+        app:layout_constraintTop_toTopOf="@+id/lblhoten" />
+
+    <RadioGroup
+        android:id="@+id/radgroup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/lblbangcap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblbangcap"
+        app:layout_constraintTop_toTopOf="@+id/lblbangcap">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/raddaihoc" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/radcaodang" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/radtrungcap" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

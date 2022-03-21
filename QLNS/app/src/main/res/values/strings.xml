@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuanLyNhanSu</string>
+    <string name="btnthem">THEM</string>
+    <string name="btnthoat">THOAT</string>
+    <string name="texthoten">Ho và Ten:</string>
+    <string name="textbangcap">Bang Cap</string>
+    <string name="radtrungcap">Trung Cap</string>
+    <string name="radcaodang">Cao Dang</string>
+    <string name="raddaihoc">Dai Hoc</string>
+    <string name="textsothich">So Thich</string>
+    <string name="checkdulich">Du Lich</string>
+    <string name="checkdocsach">Doc Sach</string>
+</resources>
