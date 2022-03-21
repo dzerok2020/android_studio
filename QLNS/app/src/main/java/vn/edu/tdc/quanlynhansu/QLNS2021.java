@@ -3,8 +3,11 @@ package vn.edu.tdc.quanlynhansu;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,7 +45,8 @@ public class QLNS2021 extends AppCompatActivity {
 
     private int selectedGrow = -1;// cờ để xem đang chọn view nào
     private int backcolor;// biến lưu màu cũ để khi ko chọn nữa thì trả về màu cũ
-    private LinearLayout priviousItem;
+//    private LinearLayout priviousItem;
+    private CardView priviousItem;
 
     private EditText hoten, sothichkhac;
     private CheckBox check1, check2;
@@ -82,12 +86,46 @@ public class QLNS2021 extends AppCompatActivity {
 //        adapter = new MyListViewAdapter(this, R.layout.customizelistview, persons);
         adapter = new MyRecyclerViewAdapter(this, R.layout.customizelistview, R.layout.customizelistview_invert, persons);
         ///Adapter Layout manager
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 1);
+//        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         list.setLayoutManager(layoutManager);
         //Set Adapter
         list.setAdapter(adapter);
+        adapter.setOnItemClickListener(new MyRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemCLick(int position, View view) {
+                if (selectedGrow == -1) {
+                    selectedGrow = position;
+                    disablebtnthem();
+                    setPersonToLayout(persons.get(position));
+                    CardView brItem = findViewById(R.id.brlistview);
+                    backcolor = brItem.getSolidColor();
+                    brItem.setBackgroundColor(getResources().getColor(R.color.btnColor, getTheme()));
+                    priviousItem = brItem;
+                } else {
+                    if (selectedGrow == position) {
+                        clear();
+                        selectedGrow = -1;
+                        enablebtnthem();
+                        CardView brItem = findViewById(R.id.brlistview);
+                        brItem.setBackgroundColor(backcolor);
+                    } else {
+                        priviousItem.setBackgroundColor(backcolor);// cái trước đó đưa về màu cũ
+                        selectedGrow = position;
+                        disablebtnthem();
+                        setPersonToLayout(persons.get((int) selectedGrow));
+                        CardView brItem = findViewById(R.id.brlistview);
+                        backcolor = brItem.getSolidColor();
+                        brItem.setBackgroundColor(getResources().getColor(R.color.btnColor, getTheme()));
+                        priviousItem = brItem;
+                    }
+
+                }
+            }
+        });
 
        /* list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
